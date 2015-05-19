@@ -1,0 +1,63 @@
+﻿<Page x:Class="AGV_WPF.TrafficManage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:my="clr-namespace:System.Windows.Controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1300"
+	Title="TrafficManage" FontSize="16" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
+
+    <Page.Resources>
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1330"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="267"/>
+        </Grid.RowDefinitions>
+
+        <Image Width="1440" Height="566"   Source="/AGV_WPF;component/Image/background1.jpg" Grid.Column="0" Grid.Row="0" Stretch="Fill" Panel.ZIndex="-1"/>
+        <Image Width="1440" Grid.Column="0" Grid.Row="1" Stretch="Fill" Panel.ZIndex="0" Source="/AGV_WPF;component/Image/background2.png" />
+
+        <my:ZoomableCanvas x:Name="canvas"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" MouseMove="canvas_MouseMove" MouseLeftButtonDown="canvas_MouseLeftButtonDown" MouseLeave="canvas_MouseLeave" MouseLeftButtonUp="canvas_MouseLeftButtonUp" MouseWheel="canvas_MouseWheel" Panel.ZIndex="-1">
+        </my:ZoomableCanvas>
+
+        <DataGrid Name="dataGrid1" AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True" Height="243" HorizontalAlignment="Center" VerticalAlignment="Center" Width="531" VerticalContentAlignment="Center" FontSize="16" SelectionChanged="dataGrid1_SelectionChanged" Margin="10,0,789,25" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}" Width="160" Visibility="Hidden" />
+                <DataGridTextColumn Header="地标ID" Binding="{Binding Path=MarkID}" Width="120" />
+                <DataGridTextColumn Header="生产区" Binding="{Binding Path=WorkLine}" Width="120" />
+                <DataGridTextColumn Header="地标号" Binding="{Binding Path=Mark}" Width="120" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <GroupBox Header="操作区域" Height="237" Name="groupBox1" Width="470" BorderBrush="DarkGreen" BorderThickness="2" Foreground="DarkGreen" Canvas.Left="547" Canvas.Top="489" Margin="546,0,314,31" Grid.Row="1">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBox Height="28" HorizontalAlignment="Right" Margin="0,96,126,0" Name="tbMark" VerticalAlignment="Top" Width="90" Visibility="Hidden" />
+                <Label Content="地标" Height="28" HorizontalAlignment="Left" Margin="188,96,0,0" Name="labelMark" VerticalAlignment="Top" Visibility="Hidden" />
+                <ComboBox Height="28" HorizontalAlignment="Right" Margin="0,96,300,0" Name="cbWorkLine" VerticalAlignment="Top" Width="71" Visibility="Hidden" />
+                <Label Content="生产区" Height="28" HorizontalAlignment="Left" Margin="7,96,0,0" Name="labelWorkLine" VerticalAlignment="Top" Visibility="Hidden" />
+                <Label Content="交通管制区" Height="33" HorizontalAlignment="Left" Margin="146,40,0,0" Name="label3" VerticalAlignment="Top" />
+                <Label Content="地标ID" Height="28" HorizontalAlignment="Left" Margin="177,96,0,0" Name="labelMarkID" VerticalAlignment="Top" />
+                <Button Content="切换&gt;" Height="28" HorizontalAlignment="Left" Margin="342,96,0,0" Name="btn_Shift" VerticalAlignment="Top" Width="41" FontSize="12" Click="btn_Shift_Click" />
+            </Grid>
+        </GroupBox>
+        <TextBox Height="28" HorizontalAlignment="Right" Margin="0,121,449,0" Name="tbMarkID" VerticalAlignment="Top" Width="90" Grid.Row="1" />
+        <ComboBox Height="28" HorizontalAlignment="Left" Margin="791,61,0,0" Name="cbTraffic" VerticalAlignment="Top" Width="90" IsEditable="True" SelectionChanged="cbTraffic_SelectionChanged" Grid.Row="1" />
+        <Button Content="删除管制区" Height="32" Name="btnDeleteTraffic" VerticalAlignment="Top" Click="btnDeleteTraffic_Click" Margin="881,176,329,0" Grid.Row="1" />
+        <Button Content="添加" Height="31" HorizontalAlignment="Left" Margin="563,177,0,0" Name="btnAdd" VerticalAlignment="Top" Width="100" Click="btnAdd_Click" Grid.Row="1" />
+        <Button Content="修改" Height="31" HorizontalAlignment="Left" Margin="669,177,0,0" Name="btnModify" VerticalAlignment="Top" Width="100" Click="btnModify_Click" Grid.Row="1" />
+        <Button Content="删除" Height="31" HorizontalAlignment="Right" Margin="0,177,455,0" Name="btnDelete" VerticalAlignment="Top" Width="100" Click="btnDelete_Click" Grid.Row="1" />
+        <Ellipse Fill="Green" Height="20" Margin="1190,69,90,0" Name="EVirtualMark" Stroke="Black" VerticalAlignment="Top" Width="20" Grid.Row="1" MouseLeftButtonDown="EVirtualMark_MouseLeftButtonDown" />
+        <Ellipse Fill="Green" Height="20" Margin="1190,23,90,0" Name="ENotVirtualMark" Stroke="Black" VerticalAlignment="Top" Width="20" Grid.Row="1" MouseLeftButtonDown="ENotVirtualMark_MouseLeftButtonDown" />
+        <Label Content="虚拟点:" Foreground="Black" HorizontalAlignment="Right" Margin="0,64,146,172" Name="label6" Width="78" Grid.Row="1" />
+        <Label Content="非虚拟点:" Foreground="Black" Margin="1106,17,116,219" Name="label7" Grid.Row="1" />
+        <TextBlock Foreground="#FFBD0700" Height="87" HorizontalAlignment="Left" Margin="1016,156,0,0" Name="textBlock1" Text="提示：&#x000A;1.管制区编号按照顺序从1开始编号；&#x000A;2.一个地标只能在管制区中使用一次；&#x000A;3.管制区中起终点地标必须为实际地标；" TextWrapping="Wrap" VerticalAlignment="Top" Width="351" Grid.Row="1" />
+        <Ellipse Fill="Green" Height="20" Margin="1205,113,105,0" Name="ETrafficMark" Stroke="Black" VerticalAlignment="Top" Width="20" Grid.Row="1" MouseLeftButtonDown="ETrafficMark_MouseLeftButtonDown" />
+        <Label Content="管制区:" Foreground="Black" HorizontalAlignment="Right" Margin="0,105,146,131" Name="label1" Width="78" Grid.Row="1" />
+    </Grid>
+</Page>

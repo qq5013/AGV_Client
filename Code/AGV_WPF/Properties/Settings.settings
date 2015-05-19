@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AGV_WPF.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MarkVirtualColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FFFF4800</Value>
+    </Setting>
+    <Setting Name="MarkNotColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FFFFFF00</Value>
+    </Setting>
+    <Setting Name="UserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="MarkDiameter" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="TrafficVirtualColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FFFF4800</Value>
+    </Setting>
+    <Setting Name="TrafficNotColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FFFFFF00</Value>
+    </Setting>
+    <Setting Name="TrafficDiameter" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="RouteColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FFFF6347</Value>
+    </Setting>
+    <Setting Name="TrafficColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FFFF0000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

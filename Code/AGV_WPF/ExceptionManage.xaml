@@ -1,0 +1,110 @@
+﻿<Window x:Class="AGV_WPF.ExceptionManage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ExceptionManage" Height="454" Width="925" WindowStartupLocation="CenterScreen" FontSize="16" Icon="/AGV_WPF;component/Image/exception_24.png" ResizeMode="NoResize">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34*" />
+            <RowDefinition Height="381*" />
+        </Grid.RowDefinitions>
+        <!--背景渐变-->
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
+                <GradientStop Color="White"/>
+                <GradientStop Color="White" Offset="1"/>
+                <GradientStop Color="#FF3D95C8"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Height="391" HorizontalAlignment="Left" Margin="338,12,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="553" VerticalContentAlignment="Center" FontSize="16" Grid.RowSpan="2" CanUserResizeColumns="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="报警时间" Binding="{Binding Path=ExTimer}" Width="160" />
+                <DataGridTextColumn Header="报警类型" Binding="{Binding Path=ExType}" Width="100" />
+                <DataGridTextColumn Header="报警生产区" Binding="{Binding Path=ExWorkLine}" Width="100" />
+                <DataGridTextColumn Header="报警路线" Binding="{Binding Path=ExRouteNum}" Width="80" />
+                <DataGridTextColumn Header="报警地标" Binding="{Binding Path=ExMarkNum}" Width="80" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <GroupBox Header="综合查询" Height="201" HorizontalAlignment="Left" Margin="4,16,0,0" Name="groupBox1" VerticalAlignment="Top" Width="318" BorderThickness="2" BorderBrush="DarkGreen" Foreground="DarkGreen" Grid.Row="1">
+            <Grid>
+                <Label Content="AGV小车编号" Height="37" HorizontalAlignment="Left" Margin="6,17,0,0" Name="label1" VerticalAlignment="Top" Width="111" />
+                <ComboBox Height="32" HorizontalAlignment="Left" Margin="115,17,0,0" Name="cbCarid" VerticalAlignment="Top" Width="101" SelectionChanged="cbCarid_SelectionChanged" />
+                <Label Content="查询日期" Height="38" HorizontalAlignment="Left" Margin="6,72,0,0" Name="label5" VerticalAlignment="Top" Width="95" />
+                <Label Content="年" Height="28"  Name="label2" VerticalAlignment="Top" Width="24" Margin="82,120,200,0" />
+                <ComboBox Height="32" HorizontalAlignment="Left" Margin="6,118,0,0" Name="cbYear" VerticalAlignment="Top" Width="75" SelectionChanged="cbDate_SelectionChanged">
+                    <ComboBoxItem Content="2010" />
+                    <ComboBoxItem Content="2011" />
+                    <ComboBoxItem Content="2012" />
+                    <ComboBoxItem Content="2013" />
+                    <ComboBoxItem Content="2014" />
+                    <ComboBoxItem Content="2015" />
+                    <ComboBoxItem Content="2016" />
+                    <ComboBoxItem Content="2017" />
+                    <ComboBoxItem Content="2018" />
+                    <ComboBoxItem Content="2019" />
+                    <ComboBoxItem Content="2020" />
+                </ComboBox>
+                <Label Content="月" Height="28" HorizontalAlignment="Left" Margin="178,119,0,0" Name="label3" VerticalAlignment="Top" Width="24" />
+                <ComboBox Height="32" HorizontalAlignment="Left" Margin="107,118,0,0" Name="cbMonth" VerticalAlignment="Top" Width="71" SelectionChanged="cbDate_SelectionChanged">
+                    <ComboBoxItem Content="-选择月份-" IsSelected="True" />
+                    <ComboBoxItem Content="01" />
+                    <ComboBoxItem Content="02" />
+                    <ComboBoxItem Content="03" />
+                    <ComboBoxItem Content="04" />
+                    <ComboBoxItem Content="05" />
+                    <ComboBoxItem Content="06" />
+                    <ComboBoxItem Content="07" />
+                    <ComboBoxItem Content="08" />
+                    <ComboBoxItem Content="09" />
+                    <ComboBoxItem Content="10" />
+                    <ComboBoxItem Content="11" />
+                    <ComboBoxItem Content="12" />
+                </ComboBox>
+                <Label Content="日" Height="28" HorizontalAlignment="Left" Margin="271,120,0,0" Name="label4" VerticalAlignment="Top" />
+                <ComboBox Height="32" Name="cbDay" SelectionChanged="cbDate_SelectionChanged" Width="68" Margin="190,119,22,22">
+                    <ComboBoxItem Content="-选择日期-" IsSelected="True" />
+                    <ComboBoxItem Content="01" />
+                    <ComboBoxItem Content="02" />
+                    <ComboBoxItem Content="03" />
+                    <ComboBoxItem Content="04" />
+                    <ComboBoxItem Content="05" />
+                    <ComboBoxItem Content="06" />
+                    <ComboBoxItem Content="07" />
+                    <ComboBoxItem Content="08" />
+                    <ComboBoxItem Content="09" />
+                    <ComboBoxItem Content="10" />
+                    <ComboBoxItem Content="11" />
+                    <ComboBoxItem Content="12" />
+                    <ComboBoxItem Content="13" />
+                    <ComboBoxItem Content="14" />
+                    <ComboBoxItem Content="15" />
+                    <ComboBoxItem Content="16" />
+                    <ComboBoxItem Content="17" />
+                    <ComboBoxItem Content="18" />
+                    <ComboBoxItem Content="19" />
+                    <ComboBoxItem Content="20" />
+                    <ComboBoxItem Content="21" />
+                    <ComboBoxItem Content="22" />
+                    <ComboBoxItem Content="23" />
+                    <ComboBoxItem Content="24" />
+                    <ComboBoxItem Content="25" />
+                    <ComboBoxItem Content="26" />
+                    <ComboBoxItem Content="27" />
+                    <ComboBoxItem Content="28" />
+                    <ComboBoxItem Content="29" />
+                    <ComboBoxItem Content="30" />
+                    <ComboBoxItem Content="31" />
+                </ComboBox>
+            </Grid>
+        </GroupBox>
+        
+        <GroupBox Header="操作面板" Height="127" HorizontalAlignment="Left" Margin="4,242,0,0" VerticalAlignment="Top" Width="318" BorderBrush="DarkGreen" Foreground="DarkGreen" BorderThickness="2" Grid.Row="1">
+            <Grid>
+                <Button Content="清除记录" Height="35"  Name="btnDeleteAll" Width="110" Click="btnDeleteAll_Click" Margin="22,28,148,36" />
+                <Button Content="导出Excel" Height="35" Name="btnExcel" Width="110" Click="btnExcel_Click" Margin="151,28,19,36" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

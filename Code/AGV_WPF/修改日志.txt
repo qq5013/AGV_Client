@@ -1,0 +1,56 @@
+﻿2014年珠海格力：
+1.20140309:表格中显示的AGV是动态添加的，有AGV无线连接成功时显示在表格中的第一行，连接失败时移除表格中。
+2.20140309:交通管制集合在一个类中，简化了交通管制算法（交通管制将循环队列改为动态队列），类中有获取交通管制区号、计算车辆的运行状态的控制参数。
+3.20140311：AGV状态结构体AGVStatus_TypStr换成了AGVCar类。
+    struct AGVStatus_TypStr         //AGV状态,可显示到屏
+    {
+        public bool WlLink;         //无线连接状态
+        public byte Wlink_Count;    //无线连接中断次数
+        public byte AgvNum;			//AGV标号
+        public byte WorkLine;		//生产区
+        public int MarkNum;			//当前地标
+        public byte MarkFunction;	//地标功能
+        public int TrafficNum;    	//管制区号
+        public byte Status;			//运行状态
+        public int LineNum;			//当前线路
+        public byte Speed;          //当前速度
+        public int DockNum;    //是否进入停靠区
+    };
+
+
+需要修改处：
+1.无线连接时的路线显示移除掉 
+2.交通管制区编号可以不按顺序添加（现在添加可以不按顺序，但程序运行的时候还是没有脱离这种方法）
+3.AGV车辆添加修改为动态的
+
+
+注意事项：
+1.充电路线可以是一整条，只要把充电停靠区路线的起点、终点连接在一起，一样可以使用，不需要像待装区换线路
+
+快捷键：
+1.格式化整个块：Ctrl+K+F.
+2. F5：启动调试
+3.Ctrl-K + Ctrl-C： 注释一段选择代码
+4.Ctrl-K + Ctrl-U： 取消一段选择代码的注
+5.Ctrl-M + Ctrl-O / Ctrl-M + Ctrl-P： 折叠定义/展开所有代码（停止大纲显示 ）
+6.Ctrl-M + Ctrl+M：展开或折叠代码段（切换大纲显示）
+
+	1. 强迫智能感知：Ctrl+J；
+
+    2.强迫智能感知显示参数信息：Ctrl-Shift-空格；
+
+    3.格式化整个块：Ctrl+K+F
+
+    4. 检查括号匹配（在左右括号间切换）： Ctrl +]
+
+    5. 选中从光标起到行首（尾）间的代码： Shift + Home（End）
+
+    6. 在方法定义和调用之点切换：Ctrl+Shift+7（8）
+
+    7. 设置断点：F9
+
+    8. 使用Tab增加缩进，Shift+Tab减少缩进
+
+    9. 格式化整篇代码： Ctrl+K， D
+
+    10. 设置书签：Ctrl+B+T，跳转书签：Ctrl+B+N

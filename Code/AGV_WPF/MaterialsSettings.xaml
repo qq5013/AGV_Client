@@ -1,0 +1,46 @@
+﻿<Window x:Class="AGV_WPF.MaterialsSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MaterialsSettings" FontSize="16" WindowStartupLocation="CenterScreen" Icon="/AGV_WPF;component/Image/call_24.png" Width="825" Height="405">
+    <Window.Resources>
+    </Window.Resources>
+
+    <Grid>
+        <!--背景渐变-->
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
+                <GradientStop Color="White"/>
+                <GradientStop Color="White" Offset="1"/>
+                <GradientStop Color="#FF3D95C8"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid AutoGenerateColumns="False" Height="355" HorizontalAlignment="Left" Margin="292,10,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="515" SelectionChanged="dataGrid1_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="工位号" Binding="{Binding Path=StationNum}" Width="80" />
+                <DataGridTextColumn Header="物料编号" Binding="{Binding Path=MaterialNum}" Width="80" />
+                <DataGridTextColumn Header="线路" Binding="{Binding Path=LineNum}" Width="80" />
+                <DataGridTextColumn Header="物料单元" Binding="{Binding Path=EachNum}" Width="80" />
+                <DataGridTextColumn Header="物料信息" Binding="{Binding Path=MaterialName}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="工 位 号：" Height="28" HorizontalAlignment="Left" Margin="0,29,0,0" x:Name="label1_Copy" VerticalAlignment="Top" Width="90" />
+        <ComboBox x:Name="cbStation" Height="23" HorizontalAlignment="Left" Margin="92,34,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" SelectionChanged="SelectionChanged" />
+
+        <Label Content="物料编号：" x:Name="label1_Copy2" Height="28" HorizontalAlignment="Left" Margin="2,75,0,0"  VerticalAlignment="Top" Width="90" />
+        <ComboBox x:Name="cbMaterialNum" Height="23" HorizontalAlignment="Left" Margin="92,80,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" SelectionChanged="SelectionChanged" />
+
+        <Label Content="线      路：" Height="28" HorizontalAlignment="Left" Margin="2,122,0,0" Name="label1" VerticalAlignment="Top" Width="90" />
+        <ComboBox Name="cbRoute" Height="23" HorizontalAlignment="Left" Margin="92,122,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" />
+
+        <Label Content="物料单元：" x:Name="label1_Copy1" Height="28" HorizontalAlignment="Left" Margin="2,170,0,0"  VerticalAlignment="Top" Width="90" />
+        <TextBox x:Name="cbEachNum" Height="23" HorizontalAlignment="Left" Margin="92,170,0,0" VerticalAlignment="Top" Width="120" />
+
+        <Label Content="物料信息：" Height="28" HorizontalAlignment="Left" Margin="0,220,0,0" Name="label2" VerticalAlignment="Top" Width="90" />
+        <TextBox Name="tbMaterialName" Height="91" HorizontalAlignment="Left" Margin="86,220,0,0"  VerticalAlignment="Top" Width="192" FontStretch="Normal" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" />
+
+        <Button Content="添加" Height="28" HorizontalAlignment="Left" Margin="14,326,0,0" Name="btnAdd" VerticalAlignment="Top" Width="75" Click="btnAdd_Click" />
+        <Button Content="修改" Height="28" HorizontalAlignment="Left" Margin="105,326,0,0" Name="btnModify" VerticalAlignment="Top" Width="75" Click="btnModify_Click" />
+        <Button Content="删除" Height="28" HorizontalAlignment="Left" Margin="203,326,0,0" Name="btnDelete" VerticalAlignment="Top" Width="75" Click="btnDelete_Click" />
+    </Grid>
+</Window>

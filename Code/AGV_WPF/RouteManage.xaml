@@ -1,0 +1,76 @@
+﻿<Page x:Class="AGV_WPF.RouteManage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:my="clr-namespace:System.Windows.Controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1300"
+	Title="RouteManage" Loaded="Page_Loaded" FontSize="16" Unloaded="Page_Unloaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="670"/>
+            <ColumnDefinition Width="660"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="267"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="/AGV_WPF;component/Image/background1.jpg" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Stretch="Fill" Panel.ZIndex="-1"/>
+        <Image Grid.Row="1" Grid.ColumnSpan="2" Stretch="Fill" Panel.ZIndex="0" Source="/AGV_WPF;component/Image/background2.png" Margin="-7,0,7,0" />
+
+        <my:ZoomableCanvas x:Name="canvas"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" MouseMove="canvas_MouseMove" MouseLeftButtonDown="canvas_MouseLeftButtonDown" MouseLeave="canvas_MouseLeave" MouseLeftButtonUp="canvas_MouseLeftButtonUp" MouseWheel="canvas_MouseWheel" Panel.ZIndex="-1">
+        </my:ZoomableCanvas>
+
+        <DataGrid Name="dataGrid1" AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True" Height="223" HorizontalAlignment="Center" VerticalAlignment="Center" Width="670" VerticalContentAlignment="Center" FontSize="16" SelectionChanged="dataGrid1_SelectionChanged" Grid.Row="1" Margin="0,0,0,45">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}" Width="100" Visibility="Hidden" />
+                <DataGridTextColumn Header="序号" Binding="{Binding Path=MarkOrder}" Width="100" />
+                <DataGridTextColumn Header="生产区" Binding="{Binding Path=WorkLine}" Width="120" />
+                <DataGridTextColumn Header="地标号" Binding="{Binding Path=Mark}" Width="100" />
+                <DataGridTextColumn Header="地标ID" Binding="{Binding Path=MarkID}" Width="100" />
+                <DataGridTextColumn Header="距上一地标距离(/m)" Binding="{Binding Path=Distance}" Width="200" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <GroupBox Header="操作面板" Foreground="DarkGreen" BorderBrush="DarkGreen" BorderThickness="2" Width="522" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="0,0,0,31">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="107*" />
+                    <ColumnDefinition Width="403*" />
+                </Grid.ColumnDefinitions>
+                <Button Content="修改" Height="31" HorizontalAlignment="Left" Name="ModifyRecord" VerticalAlignment="Top" Width="81" Click="ModifyRecord_Click" Margin="8,171,0,0" Grid.Column="1" />
+                <Button Content="删除" Height="31" HorizontalAlignment="Left" Name="DeleteRecord" VerticalAlignment="Top" Width="81" Click="DeleteRecord_Click" Margin="105,171,0,0" Grid.Column="1" />
+                <Button Content="删除线路" Height="31" HorizontalAlignment="Right" Name="DeleteAll" VerticalAlignment="Top" Width="81" Click="DeleteAll_Click" Margin="0,171,120,0" Grid.Column="1" />
+                <Button Content="复制线路" Height="31" HorizontalAlignment="Right" Margin="0,171,24,0" Name="CopyRoute" VerticalAlignment="Top" Width="81" Grid.Column="1" Click="CopyRoute_Click" />
+                <ComboBox Height="28" HorizontalAlignment="Left" Name="cbRoute" VerticalAlignment="Top" Width="89" IsEditable="True" SelectionChanged="cbRoute_SelectionChanged" Margin="228,15,0,0" Grid.Column="1" />
+                <Label Content="线   路" Height="28" HorizontalAlignment="Left" Name="label2" VerticalAlignment="Top" Margin="160,15,0,0" Grid.Column="1" />
+                <Label Content="序   号" Height="37" HorizontalAlignment="Left" Name="labelOrder" VerticalAlignment="Top" Margin="51,54,0,0" Grid.Column="1" />
+                <Label Content="地标ID" Height="28" HorizontalAlignment="Left" Name="labelMarkID" VerticalAlignment="Top" Margin="51,92,0,0" Grid.Column="1" />
+                <TextBox Height="28" HorizontalAlignment="Left" Name="tbOrder" VerticalAlignment="Top" Width="120" Margin="133,55,0,0" Grid.Column="1" />
+                <TextBox Height="28" HorizontalAlignment="Left" Name="tbMarkID" VerticalAlignment="Top" Width="120" Margin="133,92,0,0" Grid.Column="1" />
+                <Button Content="添加" Height="31" HorizontalAlignment="Left" Name="btnAdd" VerticalAlignment="Top" Width="75" Click="btnAdd_Click" Margin="26,171,0,0" />
+                <Label Content="距离(/m)" Height="30" HorizontalAlignment="Left" Name="labelDistance" VerticalAlignment="Top" Margin="51,129,0,0" Grid.Column="1" />
+                <TextBox Height="28" HorizontalAlignment="Right" Name="tbDistance" VerticalAlignment="Top" Width="120" Margin="0,129,150,0" Grid.Column="1" ToolTip="距上一地标距离" />
+                <Label Content="新路线" Height="28" HorizontalAlignment="Left" Margin="51,106,0,0" Name="labelNewRoute" VerticalAlignment="Top" Grid.Column="1" Visibility="Hidden"/>
+                <TextBox Height="28" HorizontalAlignment="Left" Margin="133,106,0,0" Name="tbNewRoute" VerticalAlignment="Top" Width="120" Grid.Column="1" Visibility="Hidden"/>
+                <Button Content="切换&gt;" Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="259,92,0,0" Name="btn_Shift" VerticalAlignment="Top" Width="37" FontSize="12" FontStretch="Normal" Click="btn_Shift_Click" />
+                <Label Content="生产区" Height="28" Margin="0,95,33,0" Name="labelWorkLine" VerticalAlignment="Top" Visibility="Hidden"/>
+                <ComboBox Grid.ColumnSpan="2" Height="28" HorizontalAlignment="Left" Margin="82,95,0,0" Name="cbWorkLine" VerticalAlignment="Top" Width="70" Visibility="Hidden"/>
+                <Label Content="地标" Height="28" HorizontalAlignment="Left" Margin="51,95,0,0" Name="labelMark" VerticalAlignment="Top" Visibility="Hidden" Grid.Column="1" />
+                <TextBox Height="28" HorizontalAlignment="Right" Margin="0,95,150,0" Name="tbMark" VerticalAlignment="Top" Width="120" Visibility="Hidden" Grid.Column="1" />
+                <Button Content="返回" FontSize="12" FontStretch="Normal" Height="28" HorizontalAlignment="Left" Margin="259,106,0,0" Name="CancelCopy" VerticalAlignment="Top" Width="37" Grid.Column="1" Click="CancelCopy_Click" Visibility="Hidden"/>
+                <ComboBox Height="28" HorizontalAlignment="Left" Margin="42,15,0,0" Name="cbRoute_WorkLine" VerticalAlignment="Top" Width="78" SelectionChanged="cbRoute_WorkLine_SelectionChanged" Grid.Column="1" />
+                <Label Content="生产区" Height="28" HorizontalAlignment="Left" Margin="68,15,0,0" Name="label1" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+            </Grid>
+        </GroupBox>
+        <Ellipse Fill="Green" Height="20" Margin="610,80,10,0" Name="EVirtualMark" Stroke="Black" VerticalAlignment="Top" Width="20" Grid.Column="1" Grid.Row="1" MouseLeftButtonDown="EVirtualMark_MouseLeftButtonDown" />
+        <Ellipse Fill="Green" Height="20" Margin="610,34,10,0" Name="ENotVirtualMark" Stroke="Black" VerticalAlignment="Top" Width="20" Grid.Column="1" Grid.Row="1" MouseLeftButtonDown="ENotVirtualMark_MouseLeftButtonDown" />
+        <Label Content="虚拟点:" Foreground="Black" HorizontalAlignment="Right" Margin="0,69,55,167" Name="label6" Width="78" Grid.Column="1" Grid.Row="1" />
+        <Label Content="非虚拟点:" Foreground="Black" Margin="526,28,36,208" Name="label7" Grid.Column="1" Grid.Row="1" />
+        <Label Content="线路:" Foreground="Black" HorizontalAlignment="Right" Margin="0,107,55,129" Name="label3" Width="78" Grid.Column="1" Grid.Row="1" />
+        <Rectangle Grid.Column="1" HorizontalAlignment="Left" Margin="587,118,0,139" Name="RecRoute" Stroke="Black" Width="51" Grid.Row="1" Fill="Tomato" MouseLeftButtonDown="RecRoute_MouseLeftButtonDown" />
+    </Grid>
+</Page>

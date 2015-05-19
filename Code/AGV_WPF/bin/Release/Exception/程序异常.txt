@@ -1,0 +1,319 @@
+[2015/3/6 0:08:23]线程:System.InvalidOperationException: 调用线程无法访问此对象，因为另一个线程拥有该对象。
+   在 System.Windows.Threading.Dispatcher.VerifyAccess()
+   在 System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   在 System.Windows.Controls.Panel.get_IsItemsHost()
+   在 System.Windows.Controls.ItemsControl.GetItemsOwnerInternal(DependencyObject element, ItemsControl& itemsControl)
+   在 System.Windows.Controls.Panel.VerifyBoundState()
+   在 System.Windows.Controls.Panel.get_InternalChildren()
+   在 System.Windows.Controls.Panel.get_Children()
+   在 AGV_WPF.DLL.AGV.AGVAnimation.ClearAllElements() 位置 f:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\DLL\AGV\AGVAnimation.cs:行号 431
+   在 AGV_WPF.DLL.AGV.AGVCar.Finalize() 位置 f:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\DLL\AGV\AGVCar.cs:行号 357
+[2015/3/6 0:09:54]线程:System.InvalidOperationException: 调用线程无法访问此对象，因为另一个线程拥有该对象。
+   在 System.Windows.Threading.Dispatcher.VerifyAccess()
+   在 System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   在 System.Windows.Controls.Panel.get_IsItemsHost()
+   在 System.Windows.Controls.ItemsControl.GetItemsOwnerInternal(DependencyObject element, ItemsControl& itemsControl)
+   在 System.Windows.Controls.Panel.VerifyBoundState()
+   在 System.Windows.Controls.Panel.get_InternalChildren()
+   在 System.Windows.Controls.Panel.get_Children()
+   在 AGV_WPF.DLL.AGV.AGVAnimation.ClearAllElements() 位置 f:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\DLL\AGV\AGVAnimation.cs:行号 431
+   在 AGV_WPF.DLL.AGV.AGVCar.Finalize() 位置 f:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\DLL\AGV\AGVCar.cs:行号 357
+[2015/3/6 10:19:41]线程:System.InvalidOperationException: 调用线程无法访问此对象，因为另一个线程拥有该对象。
+   在 System.Windows.Threading.Dispatcher.VerifyAccess()
+   在 System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   在 System.Windows.Controls.Panel.get_IsItemsHost()
+   在 System.Windows.Controls.ItemsControl.GetItemsOwnerInternal(DependencyObject element, ItemsControl& itemsControl)
+   在 System.Windows.Controls.Panel.VerifyBoundState()
+   在 System.Windows.Controls.Panel.get_InternalChildren()
+   在 System.Windows.Controls.Panel.get_Children()
+   在 AGV_WPF.DLL.AGV.AGVAnimation.ClearAllElements() 位置 f:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\DLL\AGV\AGVAnimation.cs:行号 431
+   在 AGV_WPF.DLL.AGV.AGVAnimation.Finalize() 位置 f:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\DLL\AGV\AGVAnimation.cs:行号 115
+[2015/3/6 10:39:46]线程:System.InvalidOperationException: 调用线程无法访问此对象，因为另一个线程拥有该对象。
+   在 System.Windows.Threading.Dispatcher.VerifyAccess()
+   在 System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   在 System.Windows.Controls.Panel.get_IsItemsHost()
+   在 System.Windows.Controls.ItemsControl.GetItemsOwnerInternal(DependencyObject element, ItemsControl& itemsControl)
+   在 System.Windows.Controls.Panel.VerifyBoundState()
+   在 System.Windows.Controls.Panel.get_InternalChildren()
+   在 System.Windows.Controls.Panel.get_Children()
+   在 AGV_WPF.DLL.AGV.AGVAnimation.ClearAllElements() 位置 f:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\DLL\AGV\AGVAnimation.cs:行号 431
+   在 AGV_WPF.DLL.AGV.AGVAnimation.Finalize() 位置 f:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\DLL\AGV\AGVAnimation.cs:行号 115
+[2015/3/6 14:57:20]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/6 15:59:44]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/7 0:36:06]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/7 19:23:59]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/7 21:32:11]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/7 23:38:32]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/26 22:15:56]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/26 22:40:35]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/26 22:42:00]线程:System.ServiceModel.CommunicationException: 套接字连接已中止。这可能是由于处理消息时出错或远程主机超过接收超时或者潜在的网络资源问题导致的。本地套接字超时是“00:00:59.9449969”。 ---> System.IO.IOException: 写操作失败，请参见内部异常。 ---> System.ServiceModel.CommunicationException: 套接字连接已中止。这可能是由于处理消息时出错或远程主机超过接收超时或者潜在的网络资源问题导致的。本地套接字超时是“00:00:59.9449969”。 ---> System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.ServiceModel.Channels.SocketConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.ServiceModel.Channels.SocketConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   在 System.ServiceModel.Channels.BufferedConnection.WriteNow(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout, BufferManager bufferManager)
+   在 System.ServiceModel.Channels.BufferedConnection.WriteNow(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout)
+   在 System.ServiceModel.Channels.BufferedConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ConnectionStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Net.Security.NegotiateStream.StartWriting(Byte[] buffer, Int32 offset, Int32 count, AsyncProtocolRequest asyncRequest)
+   在 System.Net.Security.NegotiateStream.ProcessWrite(Byte[] buffer, Int32 offset, Int32 count, AsyncProtocolRequest asyncRequest)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.Security.NegotiateStream.ProcessWrite(Byte[] buffer, Int32 offset, Int32 count, AsyncProtocolRequest asyncRequest)
+   在 System.Net.Security.NegotiateStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   --- 内部异常堆栈跟踪的结尾 ---
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout)
+   在 System.ServiceModel.Channels.StreamConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout, BufferManager bufferManager)
+   在 System.ServiceModel.Channels.FramingDuplexSessionChannel.OnSendCore(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Channels.TransportDuplexSessionChannel.OnSend(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Channels.OutputChannel.Send(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Dispatcher.DuplexChannelBinder.Send(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/27 0:07:02]线程:System.Configuration.ConfigurationErrorsException: 配置系统未能初始化 ---> System.Configuration.ConfigurationErrorsException: “<”(十六进制值 0x3C)是无效的特性字符。 第 82 行，位置 9。 (F:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\bin\Release\AGV_WPF.exe.Config line 82) ---> System.Xml.XmlException: “<”(十六进制值 0x3C)是无效的特性字符。 第 82 行，位置 9。
+   在 System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   在 System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   在 System.Xml.XmlTextReaderImpl.ParseAttributeValueSlow(Int32 curPos, Char quoteChar, NodeData attr)
+   在 System.Xml.XmlTextReaderImpl.ParseAttributes()
+   在 System.Xml.XmlTextReaderImpl.ParseElement()
+   在 System.Xml.XmlTextReaderImpl.ParseElementContent()
+   在 System.Xml.XmlTextReaderImpl.Read()
+   在 System.Xml.XmlTextReader.Read()
+   在 System.Xml.XmlTextReaderImpl.Skip()
+   在 System.Xml.XmlTextReader.Skip()
+   在 System.Configuration.XmlUtil.StrictSkipToNextElement(ExceptionAction action)
+   在 System.Configuration.BaseConfigurationRecord.ScanSectionsRecursive(XmlUtil xmlUtil, String parentConfigKey, Boolean inLocation, String locationSubPath, OverrideModeSetting overrideMode, Boolean skipInChildApps)
+   在 System.Configuration.BaseConfigurationRecord.ScanSectionsRecursive(XmlUtil xmlUtil, String parentConfigKey, Boolean inLocation, String locationSubPath, OverrideModeSetting overrideMode, Boolean skipInChildApps)
+   在 System.Configuration.BaseConfigurationRecord.ScanSections(XmlUtil xmlUtil)
+   在 System.Configuration.BaseConfigurationRecord.InitConfigFromFile()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Configuration.ConfigurationSchemaErrors.ThrowIfErrors(Boolean ignoreLocal)
+   在 System.Configuration.BaseConfigurationRecord.ThrowIfParseErrors(ConfigurationSchemaErrors schemaErrors)
+   在 System.Configuration.BaseConfigurationRecord.ThrowIfInitErrors()
+   在 System.Configuration.ClientConfigurationSystem.EnsureInit(String configKey)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Configuration.ClientConfigurationSystem.EnsureInit(String configKey)
+   在 System.Configuration.ClientConfigurationSystem.PrepareClientConfigSystem(String sectionName)
+   在 System.Configuration.ClientConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String sectionName)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 System.Configuration.ConfigurationManager.get_AppSettings()
+   在 AGV_WPF.App..ctor() 位置 f:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\App.xaml.cs:行号 32
+   在 AGV_WPF.App.Main() 位置 f:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\obj\x86\Release\App.g.cs:行号 0
+[2015/3/27 0:07:06]线程:System.Configuration.ConfigurationErrorsException: 配置系统未能初始化 ---> System.Configuration.ConfigurationErrorsException: “<”(十六进制值 0x3C)是无效的特性字符。 第 82 行，位置 9。 (F:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\bin\Release\AGV_WPF.exe.Config line 82) ---> System.Xml.XmlException: “<”(十六进制值 0x3C)是无效的特性字符。 第 82 行，位置 9。
+   在 System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   在 System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   在 System.Xml.XmlTextReaderImpl.ParseAttributeValueSlow(Int32 curPos, Char quoteChar, NodeData attr)
+   在 System.Xml.XmlTextReaderImpl.ParseAttributes()
+   在 System.Xml.XmlTextReaderImpl.ParseElement()
+   在 System.Xml.XmlTextReaderImpl.ParseElementContent()
+   在 System.Xml.XmlTextReaderImpl.Read()
+   在 System.Xml.XmlTextReader.Read()
+   在 System.Xml.XmlTextReaderImpl.Skip()
+   在 System.Xml.XmlTextReader.Skip()
+   在 System.Configuration.XmlUtil.StrictSkipToNextElement(ExceptionAction action)
+   在 System.Configuration.BaseConfigurationRecord.ScanSectionsRecursive(XmlUtil xmlUtil, String parentConfigKey, Boolean inLocation, String locationSubPath, OverrideModeSetting overrideMode, Boolean skipInChildApps)
+   在 System.Configuration.BaseConfigurationRecord.ScanSectionsRecursive(XmlUtil xmlUtil, String parentConfigKey, Boolean inLocation, String locationSubPath, OverrideModeSetting overrideMode, Boolean skipInChildApps)
+   在 System.Configuration.BaseConfigurationRecord.ScanSections(XmlUtil xmlUtil)
+   在 System.Configuration.BaseConfigurationRecord.InitConfigFromFile()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Configuration.ConfigurationSchemaErrors.ThrowIfErrors(Boolean ignoreLocal)
+   在 System.Configuration.BaseConfigurationRecord.ThrowIfParseErrors(ConfigurationSchemaErrors schemaErrors)
+   在 System.Configuration.BaseConfigurationRecord.ThrowIfInitErrors()
+   在 System.Configuration.ClientConfigurationSystem.EnsureInit(String configKey)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Configuration.ClientConfigurationSystem.EnsureInit(String configKey)
+   在 System.Configuration.ClientConfigurationSystem.PrepareClientConfigSystem(String sectionName)
+   在 System.Configuration.ClientConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String sectionName)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 System.Configuration.ConfigurationManager.get_AppSettings()
+   在 AGV_WPF.App..ctor() 位置 f:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\App.xaml.cs:行号 32
+   在 AGV_WPF.App.Main() 位置 f:\zhouyong\项目\AGV\珠海格力\软件最新版\AGV-WPF客户端\AGV-WPF\AGV_WPF\obj\x86\Release\App.g.cs:行号 0
+[2015/3/27 12:02:45]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/27 12:08:20]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/27 15:25:03]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/27 18:05:13]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/27 18:10:41]线程:System.ServiceModel.CommunicationObjectFaultedException: 通信对象 System.ServiceModel.Channels.ServiceChannel 无法用于通信，因为其处于“出错”状态。
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()
+   在 System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WcfDuplexMessageService.IMessageService.UnregisterClient()
+   在 AGV_WPF.MainWindow.Finalize()
+[2015/3/28 10:50:05]UI线程:没有足够的内存继续执行程序。
+[2015/3/28 10:50:05]UI线程:没有足够的内存继续执行程序。
+[2015/3/28 10:50:05]UI线程:没有足够的内存继续执行程序。
+[2015/3/28 10:50:05]UI线程:没有足够的内存继续执行程序。
+[2015/3/28 10:50:07]UI线程:没有足够的内存继续执行程序。
+[2015/3/28 10:50:07]UI线程:没有足够的内存继续执行程序。
+[2015/3/28 10:50:08]UI线程:没有足够的内存继续执行程序。
+[2015/3/28 10:50:08]UI线程:没有足够的内存继续执行程序。
+[2015/3/28 11:17:35]UI线程:没有足够的内存继续执行程序。

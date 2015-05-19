@@ -1,0 +1,353 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:AGV_WPF"
+        xmlns:marquee="clr-namespace:NS_Marquee;assembly=Marquee"
+        xmlns:loadingwait="clr-namespace:NS_LoadingWait;assembly=LoadWaiting"
+        xmlns:my="clr-namespace:System.Windows.Controls"  
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="AGV_WPF.MainWindow"  
+        Title="AGV中央管理系统"  Background="#FF8DE18D" WindowStyle="SingleBorderWindow"  ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/AGV_WPF;component/Image/company_logo128.ico" Loaded="Window_Loaded" Closing="Window_Closing" d:DesignWidth="1448.597" d:DesignHeight="867.836"> <!--PreviewKeyDown="Window_PreviewKeyDown"-->
+    <Window.Resources>
+        <l:ColorConverter x:Key="MyColorConvert"/>
+    </Window.Resources>
+
+    <ScrollViewer x:Name="scrolls" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <StackPanel x:Name="numberedItemsStackPanel" Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <loadingwait:LoadingWait x:Name="_loading"  Visibility="Collapsed" Panel.ZIndex="2" />
+                <DockPanel HorizontalAlignment="Left" x:Name="dockPanel1" VerticalAlignment="Top">
+
+                    <!-- 菜单栏停留在顶部 -->
+                    <Menu Height="32" x:Name="menu" VerticalAlignment="Top" DockPanel.Dock ="Top" Foreground="Black" FontSize="16"  Panel.ZIndex="1" Visibility="Visible">
+              <!--GotKeyboardFocus="menu_GotKeyboardFocus" LostKeyboardFocus="menu_LostKeyboardFocus" ContextMenuOpening="menu_ContextMenuOpening"-->
+                        <!-- 菜单栏背景颜色 -->
+                        <Menu.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFDFE5F2" Offset="0" />
+                                <GradientStop Color="#FFBCC6D7" Offset="1" />
+                            </LinearGradientBrush>
+                        </Menu.Background>
+                        <MenuItem Header="AGV管制系统设置(_A)" x:Name="MenuAGVManager" >
+                            <MenuItem Header="系统参数设置(_P)" x:Name="AGVPara" Click="AGVPara_Click" >
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/setting_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="地标设置(_M)" x:Name="Mark" Click="Mark_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/Mark_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="线路设置(_R)" x:Name="Route" Click="Route_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/route_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="管制区设置(_T)" x:Name="Traffic" Click="Traffic_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/traffic_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="生产区设置(_L)" x:Name="WorkLine" Click="WorkLine_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/area_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="停靠区设置(_D)" x:Name="DockArea" Click="DockArea_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/Parking_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="充电区设置(_D)" x:Name="ChargeArea" Click="ChargeArea_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/charge_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="速度等级设置(_S)" x:Name="Speed" Click="Speed_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/speed_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="自定义设置(_C)" x:Name="Custom" Click="Custom_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/custom_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="叫料系统设置(_M)" x:Name="MenuCallManage">
+                            <MenuItem Header="叫料系统管理(_C)"  Click="CallManage_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/call_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="叫料盒地址设置(_D)"  Click="CallAddressSet_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/setaddress_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="用户设置(_U)" x:Name="MenuSystemManage">
+                            <MenuItem Header="用户管理(_M)" Click="UserManage_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/user_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="通信设置(_C)" x:Name="MenuSettings">
+                            <MenuItem Header="管制系统串口设置(_S)" x:Name="ControlCOM" Click="ControlCOM_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/com_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="叫料串口设置(_M)" x:Name="MCallCOM" Click="CallCOM_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/com_plug.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="个人设置(_P)">
+                            <MenuItem Header="密码设置(_W)" Click="PassWord_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/password_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="查看(_L)">
+                            <MenuItem Header="运行异常查看(_E)" Click="Exception_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/exception_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="帮助(_H)" >
+                            <MenuItem Header="查看帮助(_V)" Click="Help_Click">
+                                <MenuItem.Icon>
+                                    <Image Source="/AGV_WPF;component/Image/help_24.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                    </Menu>
+
+                    <!-- 将状态条停靠在底部 -->
+                    <StatusBar Height="30" DockPanel.Dock="Bottom" FontSize="16" Panel.ZIndex="1" FontWeight="ExtraLight">
+                        <!--状态栏背景颜色-->
+                        <StatusBar.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFDFE5F2" Offset="0" />
+                                <GradientStop Color="#FFBCC6D7" Offset="1" />
+                            </LinearGradientBrush>
+                        </StatusBar.Background>
+
+                        <StatusBarItem x:Name="lblTime" Content="初始化中···" Width="200"
+							DockPanel.Dock="Right" Foreground="Black"
+							HorizontalContentAlignment="Center"/>
+                        <StatusBarItem Content="当前时间:" DockPanel.Dock="Right" Foreground="Black"/>
+                        <StatusBarItem DockPanel.Dock="Right">
+                            <Image Source="/AGV_WPF;component/Image/clock_24.png"/>
+                        </StatusBarItem>
+                        <Separator DockPanel.Dock="Right" />
+                        <StatusBarItem Foreground="Black" Content="用户名："/>
+                        <StatusBarItem x:Name="lblusername" Content="初始化中...." Foreground="DarkCyan"/>
+                        <Separator Margin="100,0,0,0"/>
+                        <StatusBarItem>
+                            <Image x:Name="imgSystem"  Source="/AGV_WPF;component/Image/Light_Close_24.png" />
+                        </StatusBarItem>
+                        <StatusBarItem Foreground="Black" Content="系统状态："/>
+                        <StatusBarItem x:Name="lblsystemstate" Content="关闭" Foreground="Red" FontWeight="Black"/>
+
+                        <Separator Margin="100,0,0,0"/>
+                        <StatusBarItem>
+                            <Image x:Name="imgCOM"  Source="/AGV_WPF;component/Image/Light_Close_24.png" />
+                        </StatusBarItem>
+                        <StatusBarItem Foreground="Black" Content="串口状态："/>
+                        <StatusBarItem x:Name="lblcomstate" Content="关闭" Foreground="Red" FontWeight="Black"/>
+
+                    </StatusBar>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="930" />
+                            <ColumnDefinition Width="400" />
+                            <ColumnDefinition Width="110" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="81" />
+                            <RowDefinition Height="483" />
+                            <RowDefinition Height="210" />
+                        </Grid.RowDefinitions>
+
+                        <!-- 标题栏 -->
+                        <Image Height="566"   Source="/AGV_WPF;component/Image/background1.jpg" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"  Grid.ColumnSpan="3" Stretch="Fill" />
+                        <Image Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Stretch="Fill" Panel.ZIndex="1" Source="/AGV_WPF;component/Image/background2.png" />
+                        <!-- <Image Source="/AGV_WPF;component/Image/Header1.jpg" Grid.Column="0" Grid.Row="0"  HorizontalAlignment="right" Stretch="Fill" Grid.ColumnSpan="3"></Image> -->
+                        <!-- 将画布放在窗口中央的客户区-->
+                        <my:ZoomableCanvas x:Name="canvas"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2"  MouseWheel="mCanvas_MouseWheel" MouseLeftButtonDown="canvas_MouseLeftButtonDown" MouseMove="canvas_MouseMove" MouseLeftButtonUp="canvas_MouseLeftButtonUp" MouseLeave="canvas_MouseLeave" MouseRightButtonDown="canvas_MouseRightButtonDown">
+                            <my:ZoomableCanvas.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform x:Name="mScaleTf" ScaleX="1.0" CenterX="0"/>
+                                    <TranslateTransform x:Name="mTranslateTf" X="0" Y="0"/>
+                                </TransformGroup>
+                            </my:ZoomableCanvas.RenderTransform>
+
+                            <!-- 设置跑马显示标题 -->
+                            <marquee:Marquee Content="AGV位置信息电子地图" Direction="Right" Foreground="Brown" Height="42" Canvas.Left="400" Canvas.Top="0" Width="500" FontSize="32" FontWeight="Black"/>
+                        </my:ZoomableCanvas>
+
+                        <!-- 表格数据 -->
+                        <DataGrid x:Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" CanUserSortColumns ="False" Width="930" Grid.Row="2" FontSize="16" Margin="0,0,0,5" Panel.ZIndex="2" HorizontalAlignment="Left" FontWeight="Black" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="AGV编号" Width="80" Binding="{Binding txtAGVNum}" Foreground="ForestGreen" />
+
+                                <!-- 无线连接 -->
+                                <DataGridTemplateColumn Width="80">
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="无线连接" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding txtWL}" VerticalAlignment="Center"
+												HorizontalAlignment="Center" Foreground="{Binding txtWL, Converter={StaticResource MyColorConvert}}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTextColumn Header="管制区号" Width="80" Binding="{Binding txtTrafficNum}" />
+
+                                <!-- 管制状态 -->
+                                <DataGridTemplateColumn Width="80">
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="管制状态" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding txtTrafficState}" VerticalAlignment="Center"
+												HorizontalAlignment="Center" Foreground="{Binding txtTrafficState, Converter={StaticResource MyColorConvert}}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTextColumn Header="生产区" Width="80" Binding="{Binding txtWorkLine}" />
+                                <DataGridTextColumn Header="当前线路" Width="80" Binding="{Binding txtLineNum}" />
+                                <DataGridTextColumn Header="当前地标" Width="80" Binding="{Binding txtMarkNum}" />
+
+                                <!-- 速度等级 -->
+                                <DataGridTemplateColumn Width="70">
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="速度等级" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding txtSpeed}" VerticalAlignment="Center"
+												HorizontalAlignment="Center" Foreground="{Binding txtSpeed, Converter={StaticResource MyColorConvert}}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTextColumn Header="地标功能" Width="100" Binding="{Binding txtMarkFunction}" Foreground="CornflowerBlue"/>
+
+                                <!-- 运行状态 -->
+                                <DataGridTemplateColumn Width="100">
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="运行状态" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding txtStatus}" VerticalAlignment="Center"
+												HorizontalAlignment="Center" Foreground="{Binding txtStatus, Converter={StaticResource MyColorConvert}}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <!-- 剩余电量 -->
+                                <DataGridTemplateColumn Width="100">
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="剩余电量%" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding txtPower}" VerticalAlignment="Center"
+												HorizontalAlignment="Center" Foreground="{Binding txtPower, Converter={StaticResource MyColorConvert}}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <!-- 控制面板 -->
+                        <GroupBox Height="196" Width="370" Grid.Row="2" Grid.Column="1"  Header="控制面板" VerticalAlignment="Center" FontSize="20" BorderThickness="2" BorderBrush="Green" HorizontalContentAlignment="Stretch" Foreground="Green" HorizontalAlignment="Stretch" Margin="10,0,0,0" AllowDrop="False" Panel.ZIndex="2"  FontWeight="UltraBold">
+                            <Grid Margin="10,10,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="90" />
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="90" />
+                                    <ColumnDefinition Width="8*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40" />
+                                    <RowDefinition Height="10" />
+                                    <RowDefinition Height="40" />
+                                    <RowDefinition Height="10" />
+                                    <RowDefinition Height="40" />
+                                    <RowDefinition Height="17*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Height="31"  x:Name="textBlock12" Text="小车编号" VerticalAlignment="Top" Width="81" Foreground="Blue" FontSize="16" />
+                                <ComboBox Grid.Column="1" x:Name="cb_AgvNum" SelectedIndex="0" FontSize="16" Margin="0,0,0,9" SelectionChanged="cb_AgvNum_SelectionChanged"/>
+                                <TextBlock Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" x:Name="textBlock9" Width="81" Height="31" VerticalAlignment="Top" Text="操作设置" Foreground="Blue" FontSize="16" />
+                                <ComboBox Grid.Column="4" x:Name="cb_Operation" FontSize="16" SelectedIndex="0" Margin="0,0,0,9">
+                                    <ComboBoxItem Content="保持现状"/>
+                                    <ComboBoxItem Content="启动"/>
+                                    <ComboBoxItem Content="停止"/>
+                                    <ComboBoxItem Content="复位"/>
+                                    <ComboBoxItem Content="牵引棒"/>
+                                    <ComboBoxItem Content="运行方向切换"/>
+                                    <ComboBoxItem Content="手自动切换/驱动头提升"/>
+                                </ComboBox>
+                                <TextBlock Grid.Row="2" x:Name="label1" Foreground="Blue" FontSize="16" Margin="0,0,0,9"><Run Text="速度等级"/></TextBlock>
+                                <ComboBox Grid.Row="2" Grid.Column="1" FontSize="16" x:Name="cb_Speed" SelectedIndex="0" Margin="0,0,0,9">
+                                    <ComboBoxItem Content="保持现状"/>
+                                    <ComboBoxItem Content="低速"/>
+                                    <ComboBoxItem Content="中速"/>
+                                    <ComboBoxItem Content="高速"/>
+                                    <ComboBoxItem Content="最高速"/>
+                                </ComboBox>
+                                <TextBlock Grid.Row="2" Grid.Column="3" Height="31"  x:Name="textBlock11" Text="线路号" VerticalAlignment="Top" Foreground="Blue" FontSize="16" />
+                                <ComboBox Grid.Row="2" Grid.Column="4" x:Name="cb_LineNum" ToolTip="为0时保持现状" FontSize="16" BorderBrush="Black" Margin="0,0,0,9"/>
+                                <Button Grid.Row="4" Grid.ColumnSpan="5" Width="100" x:Name="btnControl" Click="btnControl_Click" FontSize="20" HorizontalAlignment="Center"  FontWeight="UltraBold" Content="确定"/>
+                            </Grid>
+                        </GroupBox>
+
+                        <Grid Grid.Column="2" Grid.Row="2" Panel.ZIndex="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Button x:Name="btn_OpenSystem"  Click="btn_OpenSystem_Click" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="95" Height="82"  FontSize="20" Foreground="Green" Content="启动系统"  FontWeight="UltraBold"/>
+                            <Button x:Name="btn_CloseSystem" Click="btn_CloseSystem_Click" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="95" Height="82"  FontSize="20" Foreground="Red" Content="关闭系统"  FontWeight="UltraBold"/>
+                        </Grid>
+                    </Grid>
+                </DockPanel>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

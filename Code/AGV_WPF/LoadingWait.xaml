@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="AGV_WPF.LoadingWait"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             IsVisibleChanged="HandleVisibleChanged">
+    <UserControl.Background>
+        <SolidColorBrush Color="Black" Opacity="0.6"  />
+    </UserControl.Background>
+    <UserControl.Resources>
+        <SolidColorBrush Color="#FF007BE5" x:Key="CirclesColor" />
+        <!--<SolidColorBrush Color="Black" x:Key="BackgroundColor" Opacity=".20" />-->
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Image Source="/AGV_WPF;component/Image/error_72.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Stretch="None"></Image>
+        <TextBlock Text="加密狗被拔出"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="32" Foreground="Red" FontWeight="Bold" Margin="0,0,0,18" />
+        <Viewbox Width="150" Height="150"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"  
+            VerticalAlignment="Top">
+        <Grid x:Name="LayoutRoot"   
+                Background="Transparent"  
+                ToolTip="加密狗被拔出，正在关闭程序...."  
+                HorizontalAlignment="Center"  
+                VerticalAlignment="Center">
+            <TextBlock Text="Closing..."  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Foreground="Yellow" FontWeight="Bold" />
+            <Canvas RenderTransformOrigin="0.5,0.5"  
+                    HorizontalAlignment="Center"  
+                    VerticalAlignment="Center" Width="120"  
+                    Height="120" Loaded="HandleLoaded"  
+                    Unloaded="HandleUnloaded"  >
+                <Ellipse x:Name="C0" Width="20" Height="20"  
+                         Canvas.Left="0"  
+                         Canvas.Top="0" Stretch="Fill"  
+                         Fill="{StaticResource CirclesColor}" Opacity="1.0"/>
+                <Ellipse x:Name="C1" Width="20" Height="20"  
+                         Canvas.Left="0"  
+                         Canvas.Top="0" Stretch="Fill"  
+                         Fill="{StaticResource CirclesColor}" Opacity="0.9"/>
+                <Ellipse x:Name="C2" Width="20" Height="20"  
+                         Canvas.Left="0"  
+                         Canvas.Top="0" Stretch="Fill"  
+                         Fill="{StaticResource CirclesColor}" Opacity="0.8"/>
+                <Ellipse x:Name="C3" Width="20" Height="20"  
+                         Canvas.Left="0"  
+                         Canvas.Top="0" Stretch="Fill"  
+                         Fill="{StaticResource CirclesColor}" Opacity="0.7"/>
+                <Ellipse x:Name="C4" Width="20" Height="20"  
+                         Canvas.Left="0"  
+                         Canvas.Top="0" Stretch="Fill"  
+                         Fill="{StaticResource CirclesColor}" Opacity="0.6"/>
+                <Ellipse x:Name="C5" Width="20" Height="20"  
+                         Canvas.Left="0"  
+                         Canvas.Top="0" Stretch="Fill"  
+                         Fill="{StaticResource CirclesColor}" Opacity="0.5"/>
+                <Ellipse x:Name="C6" Width="20" Height="20"  
+                         Canvas.Left="0"  
+                         Canvas.Top="0" Stretch="Fill"  
+                         Fill="{StaticResource CirclesColor}" Opacity="0.4"/>
+                <Ellipse x:Name="C7" Width="20" Height="20"  
+                         Canvas.Left="0"  
+                         Canvas.Top="0" Stretch="Fill"  
+                         Fill="{StaticResource CirclesColor}" Opacity="0.3"/>
+                <Ellipse x:Name="C8" Width="20" Height="20"  
+                         Canvas.Left="0"  
+                         Canvas.Top="0" Stretch="Fill"  
+                         Fill="{StaticResource CirclesColor}" Opacity="0.2"/>
+                <Canvas.RenderTransform>
+                    <RotateTransform x:Name="SpinnerRotate"  
+                         Angle="0" />
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Grid>
+    </Viewbox>
+    </Grid>
+</UserControl>

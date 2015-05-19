@@ -1,0 +1,40 @@
+﻿<Window x:Class="AGV_WPF.CustomManage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CustomManage" Height="351" Width="660" WindowStartupLocation="CenterScreen" FontSize="16" Icon="/AGV_WPF;component/Image/custom_24.png" ResizeMode="NoResize" Closed="Window_Closed">
+    <Window.Resources>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="179*" />
+            <ColumnDefinition Width="379*" />
+        </Grid.ColumnDefinitions>
+        <!--背景渐变-->
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
+                <GradientStop Color="White"/>
+                <GradientStop Color="White" Offset="1"/>
+                <GradientStop Color="#FF3D95C8"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <DataGrid Name="dataGrid1" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Height="290" HorizontalAlignment="Center" VerticalAlignment="Center" Width="337" VerticalContentAlignment="Center" FontSize="16" Margin="77,12,19,10" SelectionChanged="dataGrid1_SelectionChanged" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="指令(十进制)" Binding="{Binding Path=CmdNum}" Width="100" />
+                <DataGridTextColumn Header="功能定义" Binding="{Binding Path=CmdFunction}" Width="220" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Height="28" HorizontalAlignment="Left" Margin="121,68,0,0" Name="tbCmdNum" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" />
+        <Label Content="指令(十进制)" Height="34" HorizontalAlignment="Left" Margin="10,68,0,0" Name="label1" VerticalAlignment="Top" />
+        <TextBox Height="28" HorizontalAlignment="Left" Margin="121,111,0,0" Name="tbCmdFunction" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" />
+        <Label Content="功能定义" Height="38" HorizontalAlignment="Left" Margin="10,111,0,0" Name="label2" VerticalAlignment="Top" />
+        <Button Content="添加" Height="33" HorizontalAlignment="Left" Margin="18,159,0,0" Name="btnAdd" VerticalAlignment="Top" Width="75" Click="btnAdd_Click" />
+        <Button Content="修改" Height="33" HorizontalAlignment="Left" Margin="105,159,0,0" Name="btnModify" VerticalAlignment="Top" Width="75" Click="btnModify_Click" />
+        <Button Content="删除" Height="33" HorizontalAlignment="Left" Margin="191,159,0,0" Name="btnDelete" VerticalAlignment="Top" Width="75" Click="btnDelete_Click" Grid.ColumnSpan="2" />
+        <RadioButton Content="地标功能" Height="28" HorizontalAlignment="Left" Margin="31,28,0,0" Name="MarkRadioBtn" VerticalAlignment="Top" GroupName="RadioBtn" IsChecked="True" IsThreeState="False" IsEnabled="True" Checked="Custom_Checked" />
+        <RadioButton Content="运行状态" Height="28" HorizontalAlignment="Left" Margin="152,28,0,0" Name="StatusRadioBtn" VerticalAlignment="Top" Grid.ColumnSpan="2" GroupName="RadioBtn" Checked="Custom_Checked" />
+        <TextBlock Foreground="#FFBD0700" Grid.ColumnSpan="2" Height="87" HorizontalAlignment="Left" Margin="14,210,0,0" Name="textBlock1" Text="提示：&#x000A;1.指令按顺序从1开始编号；&#x000A;2.“运行状态”指令请勿超过64；&#x000A;3.设置好后关闭系统重启生效；" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" />
+    </Grid>
+</Window>
